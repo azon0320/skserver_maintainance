@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  mcpe_maintain:
+    image: pmcli-7.2.22:latest
+    volumes:
+      - '/home/mcpe_maintain/data:/home/data'
+    ports:
+      # The Main Server
+      - '19132:19132/udp'
+      # The Status Checking Plugin
+      - '32320:32320/udp'
+    command: 'php core.phar'
+    tty: true
+    restart: 'always'
+    networks:
+      - 'net_mcpe_maintain'
+
+networks:
+  net_mcpe_maintain:
