@@ -14,15 +14,16 @@ make
 ~~~
 
 ## Run image
+Run image and print php installed modules
 ~~~
-# Run image and print php installed modules
 docker run --rm pmcli-7.2.22:latest php -m
 ~~~
 
+Run image and execute core.phar
 ~~~
 # Create server data directory
 mkdir -p $(pwd)/data
-# Run image and execute core.phar
+
 docker run -v "$(pwd)/data:/home/data" -p '19132:19132/udp' pmcli-7.2.22:latest php core.phar
 ~~~
 
